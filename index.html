@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    </body>
+
+    <script>
+        function computerPlay(){
+            let weapon = ["Rock", "Paper", "Scissors"];
+            let computer = weapon[Math.floor(Math.random() * weapon.length)];
+            return(computer);
+        }
+
+         function playRound(player_choice, computer_choice){
+            if (player_choice == "ROCK" && computer_choice == "Rock"){
+                return("Tie");
+            }else if (player_choice == "ROCK" && computer_choice == "Paper"){
+                return("Computer Wins");
+            }else if (player_choice == "ROCK" && computer_choice == "Scissors"){
+                return("Player Wins");
+            }else if (player_choice == "PAPER" && computer_choice == "Rock"){
+                return("Player Wins");
+            }else if (player_choice == "PAPER" && computer_choice == "Paper"){
+                return("Tie");
+            }else if (player_choice == "PAPER" && computer_choice == "Scissors"){
+                return("Computer Wins");
+            }else if (player_choice == "SCISSORS" && computer_choice == "Rock"){
+                return("Computer Wins");
+            }else if (player_choice == "SCISSORS" && computer_choice == "Paper"){
+                return("Player Wins");
+            }else if (player_choice == "SCISSORS" && computer_choice == "Scissors"){
+                return("Tie");
+            }else{
+                return("Thats not an option");
+            }
+        }
+
+         function game (){
+            let player_score = 0;
+            let computer_score = 0;
+            for (let i=0; i<5; i++){ 
+                let player_choice = prompt("Choose your Weapon: ROCK, PAPER, SCISSORS").toUpperCase();
+                let computer_choice = computerPlay();
+                console.log('Player\'s Score: ' + player_score);
+                console.log('Computer\'s Score: ' + computer_score);
+                console.log("")
+                console.log('You Picked ' + player_choice);
+                console.log('The Computer Picked ' + computer_choice); 
+                console.log("")
+                let play = playRound(player_choice, computer_choice);
+                console.log(play);
+                console.log("")
+                if (play == "Player Wins") {
+                    ++player_score;
+                }else if (play == "Computer Wins") {
+                    ++computer_score;
+                }
+            }if (player_score < computer_score) {
+                console.log("The Player won " + player_score +" games");
+                console.log("The Computer won " + computer_score + " games")
+                console.log("")
+                console.log('The computer beat you!');
+            }else if (player_score > computer_score){
+                console.log("The Player won " + player_score +" games");
+                console.log("The Computer won " + computer_score + " games")
+                console.log("")
+                console.log('The Player Wins!');
+            }else {
+                console.log("The Player won " + player_score +" games");
+                console.log("The Computer won " + computer_score + " games")
+                console.log("")
+                console.log("It's a Tie!")
+            }
+        }
+
+    </script>
+</html>
